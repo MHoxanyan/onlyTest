@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\ComfortLevel;
+use App\Models\Driver;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,11 @@ class CarFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'make' => $this->faker->text('10'),
+            'model' => $this->faker->text('10'),
+            'title' => $this->faker->title,
+            'driver_id' => Driver::factory(),
+            'comfort_level_id' => ComfortLevel::factory(),
         ];
     }
 }
